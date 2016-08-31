@@ -1,5 +1,10 @@
 .App {
-    padding: 50px 20px;
+}
+#card {
+    align-content: center;
+    margin: 40px auto;
+    padding: 10px 10px;
+    width: 60%;
 }
 #quote {
     font-size: 200%;
@@ -9,18 +14,13 @@
     text-align: center;
 }
 #buttons {
-    width:100%;
     margin: auto;
     align-content: center;
     text-align: center;
 }
 #newQuote, #shareQuote {
-    border: none;
-    background-color: cornflowerblue;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
-    font-size: 16px;
 }
 /*.App-logo {
   animation: App-logo-spin infinite 20s linear;

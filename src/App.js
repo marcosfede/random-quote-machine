@@ -1,34 +1,57 @@
 import React, { Component } from 'react'
 import './App.css'
 import $ from 'jquery'
+import RaisedButton from 'material-ui/RaisedButton'
+import { fullWhite } from 'material-ui/styles/colors'
+import ActionAndroid from 'material-ui/svg-icons/action/android'
+import Appbar from './components/Appbar'
+import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card'
+
+const style = {
+  margin: 12,
+};
+
+const Button = (props) => (
+  <RaisedButton onClick={props.onClick}
+                backgroundColor="#a4c639"
+                icon={<ActionAndroid color={fullWhite}/>}
+                style={style}
+  />
+)
 
 class App extends Component {
+
   constructor () {
     super()
     this.state = {
       quote: 'Push the button to generate a new quote'
     }
+    $.ajaxSetup({ cache: false });
   }
 
-  newQuote = () => {
-    let quoteList = [ 'quote1', 'quote2', 'quote3' ]
-    this.setState({ quote: quoteList[ Math.floor(Math.random() * quoteList.length) ] })
-  }
   newQuoteJson = () => {
-    $.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", (a) => {
-      this.setState({ quote: a[0].content })
+    $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand", (a) => {
+      console.log(a[ 0 ])
+      this.setState({ quote: $("<textarea/>").html(a[ 0 ].content.slice(3, -5)).text(), author: a[ 0 ].title })
+      //this.setState({ quote: a[ 0 ].content.slice(3, -5), author: a[ 0 ].title })
     });
   }
 
   render () {
     return (
       <div className='App'>
-        <div id='quote'>{this.state.quote}</div>
-        <p>Hola</p>
-        <div id='buttons'>
-          <button id='newQuote' onClick={this.newQuote}>new</button>
-          <button id='shareQuote' onClick={this.newQuoteJson}>share</button>
-        </div>
+        <Appbar/>
+        <Card id="card" zDepth={4}>
+          <CardTitle title="Card title" subtitle="Card subtitle"/>
+          <CardText>
+            {this.state.quote}
+          </CardText>
+          <CardActions>
+            <Button onClick={this.newQuoteJson}/>
+            <Button onClick={this.newQuoteJson}/>
+          </CardActions>
+        </Card>
+        <div id="author">{this.state.author}</div>
       </div>
     )
   }
