@@ -24,6 +24,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div id='quote'>{this.state.quote}</div>
+        <p>Hola</p>
         <div id='buttons'>
           <button id='newQuote' onClick={this.newQuote}>new</button>
           <button id='shareQuote' onClick={this.newQuoteJson}>share</button>
