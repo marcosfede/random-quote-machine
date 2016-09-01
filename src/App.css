@@ -1,10 +1,12 @@
+@import 'https://fonts.googleapis.com/css?family=Fira+Mono';
 .App {
+    height: 100vh;
 }
 #card {
     align-content: center;
-    margin: 40px auto;
+    margin: 60px auto;
     padding: 10px 10px;
-    width: 60%;
+    width: 70%;
 }
 #quote {
     font-size: 200%;
@@ -30,3 +32,39 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }*/
+@media (min-width: 620px) {
+    #author {
+        margin: 12px;
+        display: flex;
+        float: right;
+        min-width: 88px;
+        min-height: 36px;
+        align-items: center;
+        justify-content: center;
+        color: gray;
+    }
+}
+@media (max-width: 620px) {
+    #actions {
+        display: flex !important;
+        flex-wrap: wrap-reverse !important;
+        justify-content: center;
+        align-items: center;
+    }
+    #author {
+        margin: 12px;
+        display: flex;
+        float: none;
+        min-width: 88px;
+        min-height: 36px;
+        align-items: center;
+        justify-content: center;
+        color: gray;
+    }
+}
+
+#CardText {
+    font-family: "Fira Mono", monospace;
+    font-size: 150% !important;
+    font-style: italic;
+}
