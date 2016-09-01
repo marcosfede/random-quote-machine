@@ -1,6 +1,6 @@
 @import 'https://fonts.googleapis.com/css?family=Fira+Mono';
 .App {
-    height: 100vh;
+    height: 100%;
 }
 #card {
     align-content: center;

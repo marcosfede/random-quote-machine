@@ -24,7 +24,7 @@ const AppBarExampleIconButton = (props) => (
     title={<span style={styles.title}>Random Quote Generator</span>}
     iconElementRight={
       <FlatButton
-        href='https://github.com/marcosfede'
+        href='https://github.com/marcosfede/random-quote-machine'
         secondary={true}
         icon={<FontIcon className='fa fa-github' hoverColor={props.currentcolor} />}
         style={styles.github}

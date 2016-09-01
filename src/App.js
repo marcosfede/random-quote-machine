@@ -5,7 +5,7 @@ import { fullWhite } from 'material-ui/styles/colors'
 import Appbar from './components/Appbar'
 import Button from './components/Button'
 import Quote from './components/Quoteblock'
-import MadeWith from './components/Technologies'
+import Tech from './components/Tech'
 import { Card, CardActions, CardTitle } from 'material-ui/Card'
 import * as colors from 'material-ui/styles/colors'
 import FontIcon from 'material-ui/FontIcon'
@@ -43,7 +43,12 @@ class App extends Component {
 
   render () {
     return (
-      <div className='App' style={ { backgroundColor: this.state.backgroundColor } }>
+      <div className='App' style={ {
+        backgroundColor: this.state.backgroundColor,
+        position: 'absolute',
+        bottom: '0',
+        width: '100%'
+      } }>
         <Appbar currentcolor={this.state.backgroundColor}/>
         <Card id="card" zDepth={4}>
           <CardTitle title="Random Quote Generator" subtitle="made by marcosfede"/>
@@ -54,11 +59,21 @@ class App extends Component {
             backgroundColor={this.state.backgroundColor}
           />
           <CardActions id="actions">
-            <Button icon={<RefreshButton color={fullWhite}/>} className="buttons" onClick={this.newQuoteJson}/>
-            <Button backgroundColor={colors.lightBlue500} icon={<FontIcon className="fa fa-twitter" color={fullWhite}/>} className="buttons" onClick={this.newQuoteJson}/>
-            <div id="author"><span id="author-text">{this.state.author}</span></div>
+            <Button
+              icon={<RefreshButton color={fullWhite}/>}
+              className="buttons" onClick={this.newQuoteJson}/>
+            <Button
+              backgroundColor={colors.lightBlue500}
+              icon={<FontIcon className="fa fa-twitter" color={fullWhite}/>}
+              className="buttons"
+              onClick={this.newQuoteJson}
+            />
+            <div id="author">
+              <span id="author-text">{this.state.author}</span>
+            </div>
           </CardActions>
         </Card>
+        <Tech />
       </div>
     )
   }

@@ -6,8 +6,8 @@ import {CardText} from 'material-ui/Card'
 
 let style = {
   display: 'block',
-  'marginLeft': 'auto',
-  'marginRight': 'auto'
+  marginLeft: 'auto',
+  marginRight: 'auto'
 }
 
 const Quote = (props) => {
