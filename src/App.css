@@ -55,7 +55,7 @@
 }*/
 @media (min-width: 620px) {
     .App {
-        height: 100vh;
+        height: 100% !important;
     }
 
     #card {
@@ -85,7 +85,7 @@
 
 @media (max-width: 620px) {
     .App {
-        height: 100vh;
+        height: 100% !important;
     }
 
     #card {
@@ -123,4 +123,3 @@
         width: 95% !important;
     }
 }
-

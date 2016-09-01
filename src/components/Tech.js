@@ -1,19 +1,22 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Card, CardHeader, CardText } from 'material-ui/Card'
 import { List, ListItem } from 'material-ui/List'
 import ActionGrade from 'material-ui/svg-icons/action/grade'
 
+
 let style = {
-  alignContent: 'center',
-  margin: '60px auto',
-  padding: '10px 10px',
-  width: '70%',
-  titleStyle: {
+   alignContent: 'center',
+   margin: '60px auto',
+   padding: '10px 10px',
+   width: '70%',
+   titleStyle: {
     fontSize: '120%'
   }
 }
 
-const Tech = () => (
+class Tech extends Component {
+  render () {
+  return (
   <Card id='tech' style={style} zDepth={4}>
     <CardHeader
       titleStyle={style.titleStyle}
@@ -32,5 +35,7 @@ const Tech = () => (
     </CardText>
   </Card>
 )
+}
+}
 
 export default Tech

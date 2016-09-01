@@ -17,11 +17,13 @@ class App extends Component {
 
   constructor () {
     super()
+    let bgcolor = this.newBackgroundColor()
     this.state = {
       quote: 'Push the button to generate a new quote',
-      backgroundColor: this.newBackgroundColor(),
+      backgroundColor: bgcolor,
       loading: false
     }
+    $('html').css('background-color', bgcolor)
     $.ajaxSetup({ cache: false });
   }
 
@@ -31,13 +33,15 @@ class App extends Component {
   }
   newQuoteJson = () => {
     this.setState({loading: true})
+    let bgcolor = this.newBackgroundColor()
     $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand", (a) => {
       this.setState({
         quote: $("<textarea/>").html('"' + a[ 0 ].content.slice(3, -6) +'"').text(),
         author: a[ 0 ].title,
-        backgroundColor: this.newBackgroundColor(),
+        backgroundColor: bgcolor,
         loading: false
       })
+    $('html').css('background-color', bgcolor)
     });
   }
 
@@ -47,9 +51,7 @@ class App extends Component {
 
   render () {
     return (
-      <div className='App' style={ {
-        backgroundColor: this.state.backgroundColor,
-      } }>
+      <div className='App'>
         <Appbar currentcolor={this.state.backgroundColor}/>
         <Card id="card" zDepth={4}>
           <CardTitle title="Random Quote Generator" subtitle="made by marcosfede"/>
