@@ -22,6 +22,7 @@ const AppBarExampleIconButton = (props) => (
   <AppBar
     style={styles.bar}
     title={<span style={styles.title}>Random Quote Generator</span>}
+    iconElementLeft={<div></div>}
     iconElementRight={
       <FlatButton
         href='https://github.com/marcosfede/random-quote-machine'

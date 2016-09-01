@@ -1,34 +1,33 @@
 import React from 'react'
 import { Card, CardHeader, CardText } from 'material-ui/Card'
 import { List, ListItem } from 'material-ui/List'
-import ContentInbox from 'material-ui/svg-icons/content/inbox'
 import ActionGrade from 'material-ui/svg-icons/action/grade'
-import ContentSend from 'material-ui/svg-icons/content/send'
-import ContentDrafts from 'material-ui/svg-icons/content/drafts'
-import Divider from 'material-ui/Divider'
-import ActionInfo from 'material-ui/svg-icons/action/info'
 
 let style = {
   alignContent: 'center',
   margin: '60px auto',
   padding: '10px 10px',
-  width: '70%'
+  width: '70%',
+  titleStyle: {
+    fontSize: '120%'
+  }
 }
 
 const Tech = () => (
-  <Card style={style} zDepth={4}>
+  <Card id='tech' style={style} zDepth={4}>
     <CardHeader
+      titleStyle={style.titleStyle}
       title='Technologies used:'
       actAsExpander={true}
       showExpandableButton={true}
     />
     <CardText expandable={true}>
       <List>
-        <ListItem primaryText='Built with React' leftIcon={<ContentInbox />}/>
-        <ListItem primaryText='Bundled with Webpack' leftIcon={<ActionGrade />}/>
-        <ListItem primaryText='Consumes a REST API using ajax' leftIcon={<ContentSend />}/>
-        <ListItem primaryText='Material-UI CSS Framework' leftIcon={<ContentDrafts />}/>
-        <ListItem primaryText='FontAwesome for the icons' leftIcon={<ContentInbox />}/>
+        <ListItem secondaryText="Built into composable React components" primaryText='React' leftIcon={<ActionGrade />} />
+        <ListItem secondaryText="Blundles dependencies into a single file" primaryText='Webpack' leftIcon={<ActionGrade />} />
+        <ListItem secondaryText="Uses ajax to fetch a new quote every time!" primaryText='Consumes a REST API' leftIcon={<ActionGrade />} />
+        <ListItem secondaryText="Beautiful Material Design" primaryText='Material-UI CSS Framework' leftIcon={<ActionGrade />} />
+        <ListItem secondaryText="Icons for everything" primaryText='FontAwesome for the icons' leftIcon={<ActionGrade />} />
       </List>
     </CardText>
   </Card>

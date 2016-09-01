@@ -33,7 +33,7 @@ class App extends Component {
     this.setState({loading: true})
     $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand", (a) => {
       this.setState({
-        quote: $("<textarea/>").html('"' + a[ 0 ].content.slice(3, -5) +'"').text(),
+        quote: $("<textarea/>").html('"' + a[ 0 ].content.slice(3, -6) +'"').text(),
         author: a[ 0 ].title,
         backgroundColor: this.newBackgroundColor(),
         loading: false
@@ -41,13 +41,14 @@ class App extends Component {
     });
   }
 
+  shareTwitter (){
+
+  }
+
   render () {
     return (
       <div className='App' style={ {
         backgroundColor: this.state.backgroundColor,
-        position: 'absolute',
-        bottom: '0',
-        width: '100%'
       } }>
         <Appbar currentcolor={this.state.backgroundColor}/>
         <Card id="card" zDepth={4}>
@@ -64,9 +65,10 @@ class App extends Component {
               className="buttons" onClick={this.newQuoteJson}/>
             <Button
               backgroundColor={colors.lightBlue500}
+              href={'https://twitter.com/share?url=""&text=' + this.state.quote + ' ' + this.state.author}
               icon={<FontIcon className="fa fa-twitter" color={fullWhite}/>}
               className="buttons"
-              onClick={this.newQuoteJson}
+              onClick={this.shareTwitter}
             />
             <div id="author">
               <span id="author-text">{this.state.author}</span>
